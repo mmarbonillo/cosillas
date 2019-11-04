@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Titulo</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Maria Del Mar Fernandez Bonillo">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $().ready(function(){
+            $(document).keypress(function(key){
+                if(key.which == 114)
+                    $("p.par").css("color", "red");
+                else if(key.which == 98)
+                    $("p.par").css("color", "blue");
+                else if(key.which == 103)
+                    $("p.par").css("color", "green");
+            });
+        });
+      </script>
+
+</head>
+
+<body>
+    <div id="todo">
+        <PRE>
+$().ready(function(){
+    $(document).keypress(function(key){
+        if(key.which == 114)
+            $("p.par").css("color", "red");
+        else if(key.which == 98)
+            $("p.par").css("color", "blue");
+        else if(key.which == 103)
+            $("p.par").css("color", "green");
+    });
+});
+        </PRE>
+        <p style="font-size: 40px" id="uno" class="impar">Parrafo 1</p>
+        <p style="font-size: 40px" id="dos" class="par">Parrafo 1</p>
+        <p style="font-size: 40px" id="tres" class="impar">Parrafo 1</p>
+        <p style="font-size: 40px" id="cuatro" class="par">Parrafo 1</p>
+        <p style="font-size: 40px" id="cinco" class="impar">Parrafo 1</p>
+    </div>
+</body>
