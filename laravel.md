@@ -13,6 +13,8 @@
 │   └─── modelo2.php---
 ├── resources
 │      └── views
+│            |─── layout
+│            |      └─── master.blade.php...
 │            |─── view1.blade.php
 │            └─── view2.blade.php...
 ├── routes 
@@ -163,3 +165,113 @@ public function destroy(Request $r) {
 ```
 
 Una vez que eliminemos el registro es posible que tengamos que hacer una redirección para que los datos se regarguen. Esto se hace con `redirect()->action('Controller@function', $data);`
+
+## MODELOS
+
+Para crear un modelo de manera sencilla podemos hacerlo como con los controladores:
+
+    php artisan make:model <model-name>
+
+De momento, dentro de los modelos tendremos que definir dos varibles:
+
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class myUser extends Model {
+    protected $table = "web_users";
+    protected $fillable = ["username", "name", "surname", "passwd", "email", "type"];
+}
+```
+
+1. $table: Aquí indicaremos el nombre de la tabla en la base de datos.
+2. $fillable: Aquí definiremos todos los campos que serán rellenables desde un formulario.
+
+Laravel da por hecho tres campos:
+
+1. id como clave primaria de la tabla.
+2. created_at: Aquí guardará la fecha y hora (DATETIME) a la que se generó el registro.
+3. updated_at: Aquí guardará la última fecha y hora (DATETIME) a la que se modificó el registro.
+
+Laravel necesita de estos dos últimos para funcionar así que tendremos que tenerlos en nuestras tablas.
+
+## VISTAS
+
+Todas las vistas tendrán la extensión '.blade.php'
+
+En nuestra carpeta 'views' nos crearemos una carpeta llamada 'layout' para guardar ahí nuestra vista principal a la que llamaremos 'master.blade.php'. Nuestra vista principal deberá de contener algo así:
+
+```
+<!doctype html>
+<html>
+
+<head>
+    <title>@yield('title')</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Maria Del Mar Fernandez Bonillo">
+
+    <link rel="stylesheet" href="app/public/style.css">
+    <!--<script type="text/javascript" src="javascript/javascript.js"></script>-->
+
+</head>
+
+<body>
+    <div id="all">
+        <div id="menu">
+            @section('sidebar')
+            @show
+        </div>
+        <div id="content">
+            @yield('content')
+        </div>
+    </div>
+</body>
+```
+
+1. @yield('xxx'): yield significa generar. En las vistas que creemos podremos poner `@section('xxx', 'text')`. De esta forma podemos generar distinto contenido en la misma posición según la vista.
+
+2. @section: También podemos generar secciones. Si queremos que esta se muestre tendremos qu eponer '@show' justo debajo. En nuestra vista tedríamos que usar `@section('xxx')...@endsection` para darle un contenido a esa sección.
+
+Una vista de un formulario de login usando el master.blade.php anterior podría quedar así:
+
+```
+@extends('../layout/master')
+
+@section('title', 'Login')
+
+@section('content')
+<div id="formulariologin">
+    <form action="{{route('login')}}" method="POST">
+        <div class="opcion">
+            <div class="etiqueta">
+                <label for="username">Usuario: </label>
+            </div>
+            <div class="campo">
+                <input type="text" name="username" />
+            </div>
+        </div>
+        <div class="opcion">
+            <div class="etiqueta">
+                <label for="passwd">Contraseña: </label>
+            </div>
+            <div class="campo">
+                <input type="password" name="passwd" />
+            </div>
+        </div>
+        <br>
+        @if(isset($mensaje))
+            {{$mensaje}}
+            <br>
+        @endif
+        
+        <input type="submit" name="comprobar" value="Comprobar" />
+        <input type="hidden" name="opc" value='processLogin'>
+    </form>
+</div>
+@endsection
+```
+
+Es recomendable que separemos las vistas por carpetas dependiendo de a que sección de nuestra página pertenezcan.
