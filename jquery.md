@@ -1,0 +1,1 @@
+JQuery es  una librería de javascript que sirve para añadir interactividad y efectos visuales a las páginas.
