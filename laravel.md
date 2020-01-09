@@ -275,3 +275,29 @@ Una vista de un formulario de login usando el master.blade.php anterior podría 
 ```
 
 Es recomendable que separemos las vistas por carpetas dependiendo de a que sección de nuestra página pertenezcan.
+
+## LOGIN
+
+Podemos generar un login seguro de forma automática con solo dos comandos:
+
+```
+# composer require laravel/ui
+# php artisan ui vue --auth
+```
+
+Esto nos genera varios archivos, entre ellos:
+* Archivos de configuración.
+* Una carpeta 'layouts' con la vista principal del login y una vista en la carpeta views llamada __home.blade.php__ (Añadir link de bootstrap).
+* Tres enrutadores.
+* Muchos controladores en las carpetas __Auth__, __Middelware__ y __Providers__.
+
+#### HACER CAMBIOS EN EL LOGIN
+
+El login trae consigo también el formulario de registro que podemos modificar a nuestro gusto para que tenga los campos necesarios en función de nuestra aplicación web.
+
+Lo básico a tocar es:
+
+* __register.blade.php__ para modificar el formulario de registro.
+* __RegisterController.php__ Aquí tenemos la función **create** y tendremos que modificarlo para que coincida con los datos de nuestra base de datos.
+
+Podemos añadirle un logout en el HomeController usando `Auth::logout()`.

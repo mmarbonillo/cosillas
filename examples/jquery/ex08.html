@@ -11,14 +11,11 @@
 
     <script type="text/javascript">
         $().ready(function(){
-            $("form").submit(function(){
-                var campos =document.getElementsByClassName("text");
-                for(var i = 0; i < campos.length; i++){
-                    campos[i].validate();
-                }
-            });
+            $("div#capa1").focusin(function(){
+                $("p").css("color", "red");
+            })
         });
-      </script>
+    </script>
 
 </head>
 
@@ -31,10 +28,10 @@ $().ready(function(){
     });
 });
         </PRE>
-        <form action="" method="POST">
-            Usuario: <input type="text" name="username" class="text">
-            Email: <input type="text" name="email" class="text">
-            <input type="submit" name="" value="Enviar">
-        </form>
+        <div id="capa1" style="border: 1px solid blue">
+            <p>Soy un párrafo</p>
+            <input type="text" name="" id="">
+        </div>
+        
     </div>
 </body>

@@ -1,0 +1,94 @@
+@font-face {
+    font-family: "Quagmire-Bold";
+    src: local("fonts/Quagmire-Bold.otf");
+}
+
+body{
+    background-color: #B4E7EF;
+    overflow-x: hidden;
+}
+
+#all {
+    font-family: 'Lato', sans-serif;
+}
+
+#header{
+    height: auto;
+    width: 110%;
+    margin-left: -3%;
+    margin-top: -1%;
+    position: fixed;
+    background-color: #68CCDC;
+}
+
+#logo {
+    width: 90px;
+    height: 90px;
+    padding: 0.5%;
+    padding-top: 0.6%;
+    margin-left: 15%;
+    margin-top: 0.1%;
+}
+
+#logoimg {
+    width: 100%;
+}
+
+#menu {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width: 50%;
+}
+
+#menu > a {
+    float: left;
+    margin-right: 7%;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+}
+
+#menu > a:link {
+    text-decoration: none;
+}
+
+#content {
+    /*border: 1px solid black;*/
+    width: 80%;
+    margin-left: 10%;
+    float: left;
+    margin-top: 7%;
+}
+
+#footer {
+    float: left;
+    width: 110%;
+    margin-left: -3%;
+    margin-bottom: -1%;
+    margin-top: 2%;
+    background-color: #68CCDC;
+    text-align: right;
+}
+
+#footer > p {
+    margin-right: 8%;
+    font-size: larger;
+}
+
+.text {
+    width: 90%;
+    /*border: 1px solid red;*/
+    margin-left: 3%;
+    font-size: larger;
+}
+
+.literal {
+    border: 2px solid #868686;
+    background-color: #DEDEDE;
+    border-radius: 20px;
+}
+
+.cursiva {
+    font-style: italic;
+}

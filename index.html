@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JQUERY</title>
+
+    <!----------FONTS---------->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <div id="all">
+        <div id="header">
+            <div id="logo">
+                <img id="logoimg" src="images/jquery/logo.png" alt="logo" >
+            </div>
+            <div id="menu">
+                <a href="#">Introducción</a>
+                <a href="selectores.html">Selectores</a>
+                <a href="#">DOM</a>
+                <a href="#">Eventos</a>
+                <a href="#">Efectos</a>
+            </div>
+        </div>
+        <div id="content">
+            <div id="intro">
+                <h1>¿Qué es jQuery?</h1>
+                <div class="text">
+                    <p>jQuery es una librería de JavaScript de software libre y código abierto creada en enero del 2006 para ahorrar tiempo y espacio.
+                        Usando jQuery se simplifica mucho la manera de manipular el árbol DOM, manejar eventos, interactuar con los documentos HTML,
+                         agregar animaciones...
+                    </p>
+                </div>
+                <h1>Antes de empezar...</h1>
+                <div class="text">
+                    <p>Antes de empezar tenemos que tener claro que no hay nada que haga jQuery que no pueda hacer JavaScript, la diferencia es que jQuery 
+                        te puede llegar a ahorrar la mitad de líneas de código.
+                    </p>
+                    <p>Para poder usar esta librería en nuestras páginas, tenemos dos opciones: desde un archivo local o desde un enlace externo.</p>
+
+                    <h3>Desde Local</h3>
+                    <p>Descargando la librería desde <a href="https://jquery.com/download/">aquí</a> y añadiendo la siguiente etiqueta dentro del 
+                        <span class="cursiva">head</span>:</p> 
+                    <div class="literal">
+<PRE>
+    &lt;script type="text/javascript" src="ruta-al-archivo/jquery.js"&gt;&lt;/style&gt;
+</PRE>
+                    </div>
+
+                    <h3>Desde enlace externo</h3>
+                    <p>Añadiendo la siguiente línea en el <span class="cursiva">head</span>:</p>
+                    <div class="literal">
+<PRE>
+    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"&gt;&lt;/style&gt;
+</PRE>
+                    </div>
+                    <p>Como jQuery actúa directamente sobre el árbol DOM de las páginas, es imprescindible que esta haya cargado del todo antes 
+                        de que se aplique el código jQuery. Si se cargase al revés (primero jQuery y luego el DOM), no funcionaría nada. Para que jQuery 
+                        se espere a que el DOM haya cargado tenemos que usar la función <span class="cursiva">.ready()</span>; de forma que todo código deberá empezar así:
+                    </p>
+                    <div class="literal">
+<PRE>
+    &lt;style type="text/javascript"&gt;
+        $(document).ready(function(){
+            //Código
+        });
+    &lt;/style&gt;
+</PRE>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>María del Mar Fernández Bonillo</p>
+        </div>
+    </div>
+</body>
+</html>
